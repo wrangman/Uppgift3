@@ -23,31 +23,6 @@ def view_product(idx, products):
    product = products[idx]
 
    
-
-def add_product(products):
-   
-   find_max = max(products, key=lambda id: id['id'])
-   max_id = find_max['id']
-   
-   new_id = max_id + 1
-
-   name = input("Namn:")
-   desc = input("Beskr.:")
-   price = float(input("Pris:"))
-   quantity = int(input("Antal:"))
-   
-   product = {}
-
-   product['id'] = new_id
-   product['name'] = name
-   product['desc'] = desc
-   product['price'] = price
-   product['quantity'] = quantity
-
-   products.append(product)
-   
-   return product
-   
    
 def load_data(filename): 
    products = []           #lista
@@ -101,10 +76,6 @@ while True:
       
       if 0 < idx <= len(products):   
          view_product(idx, products)
-         input()
+         input() #bara vänta till tangentbordsklick
 
-   else:
-      if option.upper() == "L":
-         product = add_product(products)
-         print(f"Lade till produkt: {product['name']}")
-         input()
+   
