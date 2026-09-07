@@ -51,6 +51,7 @@ def load_data(filename):
 
 #TODO: gör så man kan se en numrerad lista som börjar på 1.
 #TODO: skriv klart funktionen som returnerar en specifik produkt med hjälp av id & products
+#TODO: skriv en funkion som skapar en ny produkt - den behöver inte spara till fil!
 #TODO: skriv en funktion som tar bort en specifik produkt med hjälp av id
 
    # found_max = max(products, key=lambda id: id['id'])
