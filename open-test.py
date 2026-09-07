@@ -3,13 +3,13 @@ import subprocess
 import locale
 
 
-
 def format_currency(value):
    return locale.currency(value,grouping=True)
 
 
 def list_products(products):
-   for idx, product in enumerate(products, 1):
+   for idx, product in enumerate(products):
+      
       name = product['name']
       price = format_currency(product['price'])
       quantity = product['quantity']
@@ -20,15 +20,9 @@ def list_products(products):
 def view_product(idx, products):
    subprocess.run('cls', shell=True)
    
-   product = products[idx - 1]
-   
-   print(f"VISAR PRODUKT MED ID: #{product['id']}")
-   print("="*40)
-   print("Namn:", product['name'])
-   print("Beskr.:", product['desc'])
-   print("Pris:", product['price'])
-   print("Kvanitet:", product['quantity'], end="\n\n")
+   product = products[idx]
 
+   
 
 def add_product(products):
    
@@ -54,8 +48,6 @@ def add_product(products):
    
    return product
    
-
-
    
 def load_data(filename): 
    products = []           #lista
@@ -82,9 +74,8 @@ def load_data(filename):
    return products
 
 
-#TODO: hur gör man så funktionen load_data returnerar products istället?
 #TODO: gör så man kan se en numrerad lista som börjar på 1.
-#TODO: skriv en funktion som returnerar en specifik produkt med hjälp av id
+#TODO: skriv klart funktionen som returnerar en specifik produkt med hjälp av id & products
 #TODO: skriv en funktion som tar bort en specifik produkt med hjälp av id
 
    # found_max = max(products, key=lambda id: id['id'])
@@ -104,7 +95,8 @@ while True:
    print("-" * 140)
    option = input("Vad vill du göra? [# = visa produkt | L = lägg till | T = ta bort | E = ändra | Q = avsluta] ")
    
-   if option.isnumeric():
+   
+   if option.isdigit():
       idx = int(option)
       
       if 0 < idx <= len(products):   
